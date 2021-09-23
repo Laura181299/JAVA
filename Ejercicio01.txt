@@ -1,0 +1,25 @@
+package ej01;
+
+import java.util.Scanner;
+
+public class Ej01 {
+
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		int[] lista = {0,0,0,0,0,0,0};
+		
+		for(int i = 0; i<7; i++) {
+			int numero;
+			System.out.println("Introduce un numero: ");
+			numero = teclado.nextInt();
+			lista[i]=numero;
+		}
+		
+		for(int i : lista) { // Recorre los elementos 
+			System.out.println(i);
+		}
+		
+		teclado.close();
+
+	}
