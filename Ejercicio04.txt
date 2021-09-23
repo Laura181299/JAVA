@@ -1,0 +1,32 @@
+package ej04;
+
+import java.util.Scanner;
+
+public class Ej04 {
+
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int[] lista = {0,0,0,0,0,0,0,0,0,0};
+		int[] lista2 = {0,0,0,0,0,0,0,0,0,0};
+		
+		for(int i = 0; i<10; i++) {
+			int numero;
+			System.out.println("Introduce un numero: ");
+			numero = teclado.nextInt();
+			lista[i]=numero;
+		}
+		
+		for (int i = 9; i>=1; i--) { // Creamos la nueva lista
+			lista2[i]=lista[i-1];
+		}
+		lista2[0]=lista[lista.length-1]; // Elemento que me falta (i no puede tomar valor 0)
+		
+		for(int i : lista2) { // Recorre los elementos
+			System.out.println(i);
+		}
+		
+		teclado.close();
+
+	}
+
+}

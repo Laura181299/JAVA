@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Ej02 {
+
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		int[] lista = {0,0,0,0,0,0,0};
+		
+		for(int i = 0; i<7; i++) {
+			int numero;
+			System.out.println("Introduce un numero: ");
+			numero = teclado.nextInt();
+			lista[i]=numero;
+		}
+		
+		for(int i = 6; i>=0; i--) { // Recorre los elementos en orden inverso
+			System.out.println(lista[i]);
+		}
+
+		teclado.close();
+
+	}
+
+}
