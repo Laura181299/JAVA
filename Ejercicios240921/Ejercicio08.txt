@@ -1,0 +1,47 @@
+package ejercicio08;
+
+import java.util.Scanner;
+
+public class Ej08 {
+
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		// Variables
+		int a1, a2, m1, m2, d1, d2, totaldias1, totaldias2; 
+		
+		// Primera fecha
+		System.out.println("Introduce el día de la primera fecha: ");
+		d1 = teclado.nextInt();
+		System.out.println("Introduce el mes de la primera fecha: ");
+		m1 = teclado.nextInt();
+		System.out.println("Introduce el año de la primera fecha: ");
+		a1 = teclado.nextInt();
+		
+		// Segunda fecha
+		System.out.println("Introduce el día de la segunda fecha: ");
+		d2 = teclado.nextInt();
+		System.out.println("Introduce el mes de la segunda fecha: ");
+		m2 = teclado.nextInt();
+		System.out.println("Introduce el año de la segunda fecha: ");
+		a2 = teclado.nextInt();
+		
+		teclado.close();
+		
+		// Cálculo de dias que han transcurrido hasta la primera fecha
+		totaldias1 = (a1-1)*365 + (m1-1)*30 + d1;
+
+		// Cálculo de dias que han transcurrido hasta la primera fecha
+		totaldias2 = (a2-1)*365 + (m2-1)*30 + d2;
+		
+		// Mostrar la fecha más reciente
+		if(totaldias1>totaldias2)
+			System.out.println("La primera fecha es más reciente que la segunda");
+		else
+			System.out.println("La segunda fecha es más reciente que la primera");
+		
+		
+	}
+
+}

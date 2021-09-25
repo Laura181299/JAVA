@@ -1,0 +1,89 @@
+package ejercicio01;
+
+import java.util.Scanner;
+
+public class Cuenta {
+	
+	Scanner teclado = new Scanner(System.in); // entrada de datos por sistema
+	
+	// Atributos
+	private int numeroCuenta;
+	private String titularCuenta;
+	private float saldoCuenta;
+	private float interesCuenta;
+	
+	// Metodo constructor con parametros
+	public Cuenta(int numeroCuenta, String titularCuenta, float saldoCuenta, float interesCuenta) {
+		this.numeroCuenta = numeroCuenta;
+		this.titularCuenta = titularCuenta;
+		this.saldoCuenta = saldoCuenta;
+		this.interesCuenta = interesCuenta;
+	}
+	
+	// Metodos Get y Set
+	public int getNumeroCuenta() {
+		return numeroCuenta;
+	}
+
+	public void setNumeroCuenta(int numeroCuenta) {
+		this.numeroCuenta = numeroCuenta;
+	}
+
+	public String getTitularCuenta() {
+		return titularCuenta;
+	}
+
+	public void setTitularCuenta(String titularCuenta) {
+		this.titularCuenta = titularCuenta;
+	}
+
+	public float getSaldoCuenta() {
+		return saldoCuenta;
+	}
+
+	public void setSaldoCuenta(float saldoCuenta) {
+		this.saldoCuenta = saldoCuenta;
+	}
+
+	public float getInteresCuenta() {
+		return interesCuenta;
+	}
+
+	public void setInteresCuenta(float interesCuenta) {
+		this.interesCuenta = interesCuenta;
+	}
+	
+	// Metodos especificos	
+	public void depositar(float dinero) {
+		while (dinero<0) {
+			System.out.println("La cantidad de dinero introducida no es correcta. Vuelva a introducir la cantidad.");
+			dinero = teclado.nextFloat();
+		}
+		saldoCuenta = saldoCuenta + dinero;
+		System.out.println("Saldo de la cuenta actualizado: "+saldoCuenta);
+	}
+	
+	public void girar(float dinero) {
+		while (dinero>saldoCuenta) {
+			System.out.println("La cantidad de dinero introducida no es correcta. Vuelva a introducir la cantidad.");
+			dinero = teclado.nextFloat();
+		}
+		saldoCuenta = saldoCuenta - dinero;
+		System.out.println("Saldo de la cuenta actualizado: "+saldoCuenta);
+	}
+	
+	public void consultaSaldo() {
+		System.out.println("El saldo de la cuenta es: "+saldoCuenta);
+	}
+	
+	public void convertirUSD() {
+		double saldoUSD;
+		saldoUSD = saldoCuenta*1.17;
+		System.out.println("Saldo de la cuenta en USD: "+saldoUSD);
+	}
+	
+	public void salir() {
+		System.out.println("Usted ha salido con éxito.");
+	}
+	
+}

@@ -1,0 +1,65 @@
+package ejercicio01;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+import java.util.ArrayList;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		String usuario, contraseña;
+		
+		System.out.println("Introduzca el usuario: ");
+		usuario = teclado.next();
+		System.out.println("Introduzca la contraseña: ");
+		contraseña = teclado.next();
+		
+
+		Login login = new Login();
+		login.registrarse(usuario,contraseña);
+		
+		// Ejercicio 02 (24/09/21)
+		// Variables
+		String pregunta, titular;
+		int numero;
+		float saldo, interes;
+		
+		List<Cuenta> clienteList = new LinkedList<Cuenta>(); // lista de los clientes
+		
+		
+		System.out.println("¿Quiere crear una cuenta?");
+		pregunta = teclado.next();
+		
+		// Inclusión de los clientes en la lista
+		while(pregunta.equals("Si")) {
+			System.out.println("Introduce el numero de cuenta: ");
+			numero = teclado.nextInt();
+			System.out.println("Introduce el titular de la cuenta: ");
+			titular = teclado.next();
+			System.out.println("Introduce el saldo de la cuenta: ");
+			saldo = teclado.nextFloat();
+			System.out.println("Introduce el interés de la cuenta: ");
+			interes = teclado.nextFloat();
+			
+			clienteList.add(new Cuenta(numero,titular,saldo,interes)); // añado el nuevo cliente
+			
+			System.out.println("¿Desea crear mas cuentas?");
+			pregunta = teclado.next();
+		}
+		
+		// Mostramos la lista de todos los clientes
+		System.out.println("************************");
+		System.out.println("Lista de clientes: ");
+		System.out.println("************************");
+		
+		for(Cuenta a : clienteList) {
+			System.out.println("Numero de cuenta: "+a.getNumeroCuenta()+", Titular de la cuenta: "+a.getTitularCuenta()+", Saldo de la cuenta: "+a.getSaldoCuenta()+", Interes de la cuenta: "+a.getInteresCuenta()+"%");
+		}
+		
+
+	}
+
+}

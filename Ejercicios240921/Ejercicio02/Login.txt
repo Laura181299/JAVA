@@ -1,0 +1,85 @@
+package ejercicio01;
+
+import java.util.Scanner;
+
+public class Login {
+	
+	Scanner teclado = new Scanner(System.in); // entrada de datos por sistema
+	
+	// Atributos
+	private String usuarioadmin;
+	private String contradmin;
+	private String usuariocliente;
+	private String contracliente;
+	
+	// Método constructor
+	public Login() {
+		this.usuarioadmin="Administrador1";
+		this.contradmin = "1234";
+		this.usuariocliente = "Cliente1";
+		this.contracliente="12345";
+	}
+
+	// Creacion de la cuenta
+	Cuenta cuenta = new Cuenta(1234,"Laura Díaz Sánchez",263561,6);
+	int k=0; // Para acceder a las opciones
+
+	// Método específico
+	public void registrarse(String usuario, String contraseña) {
+		if(usuario.matches(usuarioadmin) && contraseña.matches(contradmin)) {
+			System.out.println("******Menu Administrador******");
+			System.out.println("[1] Número de cuenta");
+		    System.out.println("[2] Titular de la cuenta");
+		    System.out.println("[3] Saldo de la cuenta");
+		    System.out.println("[4] Interes anual de la cuenta");
+		    System.out.println("[5] Salir");
+		   
+			k = teclado.nextInt(); // tipo de dato int
+			
+			switch(k) {
+			
+			case 1: System.out.println(cuenta.getNumeroCuenta());break; 
+			case 2: System.out.println(cuenta.getTitularCuenta());break; 
+			case 3: System.out.println(cuenta.getSaldoCuenta());break; 
+			case 4: System.out.println(cuenta.getInteresCuenta()+"%");break; 
+			case 5: cuenta.salir();break; 
+			default: System.out.println("No es una opción válida");
+			
+			}
+		}
+		else if(usuario.matches(usuariocliente) && contraseña.matches(contracliente)) {
+			System.out.println("******Menu Cliente******");
+			System.out.println("[1] Depositar");
+		    System.out.println("[2] Girar");
+		    System.out.println("[3] Consulta saldo");
+		    System.out.println("[4] Convertir la moneda de Euro a USD");
+		    System.out.println("[5] Salir");
+		    
+		    k = teclado.nextInt(); // tipo de dato int
+			
+			switch(k) {
+			
+			case 1: float dinero1; 
+					System.out.println("Introduce el dinero"); 
+					dinero1 = teclado.nextFloat();
+					cuenta.depositar(dinero1);
+					break; 
+			case 2: float dinero2; 
+					System.out.println("Introduce el dinero"); 
+					dinero2 = teclado.nextFloat();
+					cuenta.girar(dinero2);
+					break; 
+			case 3: cuenta.consultaSaldo();break; 
+			case 4: cuenta.convertirUSD();break; 
+			case 5: cuenta.salir();break; 
+			default: System.out.println("No es una opción válida");
+			
+			}
+		}
+		
+		else
+			System.out.println("El usuario o la contraseña introducida no son correctos");
+	}
+
+
+}

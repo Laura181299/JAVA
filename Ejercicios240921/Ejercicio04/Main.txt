@@ -1,0 +1,11 @@
+package ejercicio04;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Persona per = new Persona("Laura","Díaz","Sánchez",21,1.62f); // creacion de un objeto de la clase persona
+		per.imprimir();
+
+	}
+
+}

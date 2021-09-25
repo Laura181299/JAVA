@@ -1,0 +1,43 @@
+package ejercicio03;
+
+import java.util.Scanner;
+import java.time.LocalDate;
+
+public class Ej03 {
+	
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in); 
+		
+		int a1, a2, m1, m2, d1, d2; // variables
+		
+		// Introducimos la fecha de nacimiento
+		System.out.println("Introduce el día de tu fecha de nacimiento: ");
+		d1 = teclado.nextInt();
+		System.out.println("Introduce el mes de tu fecha de nacimiento: ");
+		m1 = teclado.nextInt();
+		System.out.println("Introduce el año de tu fecha de nacimiento: ");
+		a1 = teclado.nextInt();
+		
+		teclado.close(); // cerramos el teclado
+		
+		LocalDate fechaActual = LocalDate.now(); // fecha actual
+		
+		// Extraemos el dia, mes y año de la fecha actual
+		d2 = fechaActual.getDayOfMonth();
+		m2 = fechaActual.getMonthValue();
+		a2 = fechaActual.getYear();
+		
+		// Cálculo de días vividos (suponemos todos los meses de 30 dias)
+		int difdias = d1-d2; 
+		int difmes = m1-m2;
+		int difaños = a1-a2;
+		
+		int diftotal = difdias + difmes*30 + difaños*365;
+		
+		System.out.println("Dias vividos: "+Math.abs(diftotal));
+		
+		
+	}
+
+}

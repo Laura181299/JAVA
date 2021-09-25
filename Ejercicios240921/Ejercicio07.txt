@@ -1,0 +1,47 @@
+package ejercicio07;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Ej07 {
+
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		
+		HashMap<Integer, String> codigoPaisCapital = new HashMap<Integer, String>(); // HashMap
+		
+		// Agregar Clave y Valor
+		codigoPaisCapital.put(1, "España");
+		codigoPaisCapital.put(11, "Madrid");
+		codigoPaisCapital.put(2, "Alemania");
+		codigoPaisCapital.put(22, "Berlín");
+		codigoPaisCapital.put(3, "Argentina");
+		codigoPaisCapital.put(33, "Buenos Aires");
+		codigoPaisCapital.put(4, "Bélgica");
+		codigoPaisCapital.put(44, "Bruselas");
+		codigoPaisCapital.put(5, "Colombia");
+		codigoPaisCapital.put(55, "Bogotá");
+		
+		// Mostramos por pantalla
+		System.out.println("Claves de 5 países junto con sus respectivas capitales: ");
+		System.out.println(codigoPaisCapital);
+		System.out.println("***********************");
+		
+		// Mostrar valor según clave
+		Integer clave;
+		String pregunta;
+		
+		System.out.println("¿Quiere buscar algun pais/capital según la clave?");
+		pregunta = teclado.next();
+		
+		if(pregunta.equals("Si")) {
+			System.out.println("Introduce la clave: ");
+			clave = teclado.nextInt();
+			System.out.println(codigoPaisCapital.get(clave));
+		}
+		
+		teclado.close();
+	
+	}
+
+}

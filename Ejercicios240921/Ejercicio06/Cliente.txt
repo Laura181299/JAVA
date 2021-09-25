@@ -1,0 +1,53 @@
+package ejercicio06;
+
+public class Cliente {
+	// Atributos
+	private String nombre;
+	private String apellido;
+	private int fono;
+	private String email;
+	
+	// Metodo constructor con parametros
+	public Cliente(String nombre, String apellido, int fono, String email) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.fono = fono;
+		this.email = email;
+	}
+
+	// Metodos get y set
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public int getFono() {
+		return fono;
+	}
+
+	public void setFono(int fono) {
+		this.fono = fono;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+
+}

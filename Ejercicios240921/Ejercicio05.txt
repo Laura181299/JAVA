@@ -1,0 +1,29 @@
+package ejercicio05;
+
+public class Ej05 {
+
+	public static void main(String[] args) {
+		interface Persona {            // Interfaz
+			public void trabajar();    // método 1
+			public void dormir();      // método 2
+			public void estudiar();    // método 3
+		}
+		
+		class Bebe implements Persona {
+			public void trabajar() {
+				System.out.println("No trabaja");
+			}
+			public void dormir() {
+				System.out.println("Duerme");
+			}
+			public void estudiar() {
+				System.out.println("No estudia");
+			}
+		}
+		
+		Bebe bebe = new Bebe();
+		bebe.trabajar();
+
+	}
+
+}

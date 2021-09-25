@@ -1,0 +1,94 @@
+package ejercicio06;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Ej06 {
+
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		
+		// Variables
+		String pregunta, nombre, apellido, email;
+		int fono, i = 1;
+		
+		List<Cliente> clienteList = new LinkedList<Cliente>(); // lista de clientes
+		
+		// Añadimos los clientes a la lista
+		System.out.println("Introduce los datos de un cliente");
+		System.out.println("Nombre del cliente: ");
+		nombre = teclado.next();
+		System.out.println("Apellido del cliente: ");
+		apellido = teclado.next();
+		System.out.println("Tlfn del cliente: ");
+		fono = teclado.nextInt();
+		System.out.println("Email del cliente: ");
+		email = teclado.next();
+		
+		clienteList.add(new Cliente(nombre,apellido,fono,email)); // añado el nuevo cliente
+		
+		System.out.println("¿Desea añadir más clientes?");
+		pregunta = teclado.next();
+		
+		while(pregunta.equals("Si") && i<=10) {
+			System.out.println("Introduce los datos de un cliente");
+			System.out.println("Nombre del cliente: ");
+			nombre = teclado.next();
+			System.out.println("Apellido del cliente: ");
+			apellido = teclado.next();
+			System.out.println("Tlfn del cliente: ");
+			fono = teclado.nextInt();
+			System.out.println("Email del cliente: ");
+			email = teclado.next();
+			
+			clienteList.add(new Cliente(nombre,apellido,fono,email)); // añado el nuevo cliente
+			i = i+1; // incremento el contador del numero de clientes añadidos (máximo se pueden guardar 10 clientes)
+			
+			System.out.println("¿Desea añadir más clientes?");
+			pregunta = teclado.next();
+			
+		}
+		
+		// Mostramos los datos por pantalla
+		System.out.println("***************************");
+		System.out.println("Lista de clientes: ");
+		System.out.println("***************************");
+
+		for(Cliente a : clienteList) {
+			System.out.println("Nombre: "+a.getNombre()+", Apellido: "+a.getApellido()+", Tlfn: "+a.getFono()+", Email: "+a.getEmail());
+		}
+		
+		// Opcion de agregar más usuarios
+		System.out.println("¿Desea agregar más usuarios?");
+		pregunta = teclado.next();
+		
+		if(pregunta.equals("Si")) {
+			System.out.println("Introduce los datos de un cliente");
+			System.out.println("Nombre del cliente: ");
+			nombre = teclado.next();
+			System.out.println("Apellido del cliente: ");
+			apellido = teclado.next();
+			System.out.println("Tlfn del cliente: ");
+			fono = teclado.nextInt();
+			System.out.println("Email del cliente: ");
+			email = teclado.next();
+			
+			clienteList.add(new Cliente(nombre,apellido,fono,email)); // añado el nuevo cliente
+			
+			// Imprimo la lista de los clientes actualizada
+			System.out.println("***************************");
+			System.out.println("Lista de clientes: ");
+			System.out.println("***************************");
+			for(Cliente a : clienteList) { // 
+				System.out.println("Nombre: "+a.getNombre()+", Apellido: "+a.getApellido()+", Tlfn: "+a.getFono()+", Email: "+a.getEmail());
+			}
+			
+		}
+		
+		teclado.close(); // cerramos el teclado
+		
+
+	}
+
+}

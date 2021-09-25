@@ -1,0 +1,22 @@
+package ejercicio01;
+
+public class Ej01 {
+
+	public static void main(String[] args) {
+		
+		int resultado = suma(15); // suma de todos los numeros entre 7 y 15
+		System.out.println("Suma de todos los números entre 7 y 15: "+resultado);
+
+	}
+	
+	public static int suma(int x) { // Funcion recursiva
+		if (x>6) {
+			return x + suma(x-1);
+		}
+		else
+			return 0;
+		
+
+	}
+
+}
