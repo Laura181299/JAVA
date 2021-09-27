@@ -1,0 +1,6 @@
+package calculadora;
+
+public interface Interface {
+
+	float valorB (float n, float m);
+}

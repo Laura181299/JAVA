@@ -1,0 +1,121 @@
+package calculadora;
+
+import java.util.Scanner;
+
+public class Operaciones implements Interface{
+	
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		// Definimos las funciones lambda (operaciones)
+		Interface suma = (n, m) -> n+m; 
+		Interface resta = (n, m) -> n-m; 
+		Interface multiplicacion = (n, m) -> n*m; 
+		Interface division = (n, m) -> n/m; 
+	
+		// Menu seleccion de la operacion
+		int operacion;
+		float n,m;
+		String respuesta;
+		
+		System.out.println("Menú selección de la operación");
+		System.out.println("1: suma");
+		System.out.println("2: resta");
+		System.out.println("3: multiplicación");
+		System.out.println("4: división");
+		
+		System.out.println("Introduzca la operación deseada");
+		operacion = teclado.nextInt();
+		
+		System.out.println("Introduzca dos números");
+		n = teclado.nextFloat();
+		m = teclado.nextFloat();
+		
+		// Realización de operaciones con opcion de repetir la operacion
+		switch(operacion) {
+		
+		case 1: 
+			float suma1 = suma.valorB(n, m);
+			System.out.println("¿Desea seguir operando?"); 
+			respuesta = teclado.next();
+			while(respuesta.equals("Si")) {
+				float s; // numero a introducir
+				System.out.println("Introduzca el nuevo numero");
+				s = teclado.nextFloat();
+				suma1 = suma.valorB(suma1, s);
+				System.out.println("¿Desea seguir operando?"); 
+				respuesta = teclado.next();
+			}
+				
+				System.out.println("Resultado de la operación realizada: "+suma1);
+				break;
+			
+		case 2: 
+			float resta1 = resta.valorB(n, m);
+			System.out.println("¿Desea seguir operando?"); 
+			respuesta = teclado.next();
+			while(respuesta.equals("Si")) {
+				float s; // numero a introducir
+				System.out.println("Introduzca el nuevo numero");
+				s = teclado.nextFloat();
+				resta1 = resta.valorB(resta1, s);
+				System.out.println("¿Desea seguir operando?"); 
+				respuesta = teclado.next();
+			}
+				
+				System.out.println("Resultado de la operación realizada: "+resta1);
+				break;
+		case 3: 
+			float mult1 = multiplicacion.valorB(n, m);
+			System.out.println("¿Desea seguir operando?"); 
+			respuesta = teclado.next();
+			while(respuesta.equals("Si")) {
+				float s; // numero a introducir
+				System.out.println("Introduzca el nuevo numero");
+				s = teclado.nextFloat();
+				mult1 = multiplicacion.valorB(mult1, s);
+				System.out.println("¿Desea seguir operando?"); 
+				respuesta = teclado.next();
+			}
+				
+				System.out.println("Resultado de la operación realizada: "+mult1);
+				break;
+		case 4: 
+			try { // Distinción de la excepcion dividir por 0
+				String infinito = "Infinity";
+				float div1 = division.valorB(n, m);
+				System.out.println("¿Desea seguir operando?"); 
+				respuesta = teclado.next();
+				while(respuesta.equals("Si")) {
+					float s; // numero a introducir
+					System.out.println("Introduzca el nuevo numero");
+					s = teclado.nextFloat();
+					div1 = division.valorB(div1, s);
+					System.out.println("¿Desea seguir operando?"); 
+					respuesta = teclado.next();
+				}
+				
+				if(String.valueOf(div1).equals(infinito)) {
+					throw new ArithmeticException();} // creamos el error
+				
+				System.out.println("Resultado de la operación realizada: "+div1);
+				} catch(ArithmeticException exc) {
+					System.out.println("No se puede dividir por cero");
+					}
+			break;
+	
+		default: System.out.println("No es una opción válida");
+		
+		}
+	
+	}
+	
+	
+	// Metodo
+	public float valorB(float n, float m) { // inicializamos en 0
+		return 0;
+	}
+	
+}
+
