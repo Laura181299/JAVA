@@ -1,0 +1,75 @@
+package ejercicio04;
+
+public class Libros implements Prestable{
+	
+	// Atributos 
+	private int codigo;
+	private String titulo;
+	private int año;
+	private boolean prestado;
+	
+	// Metodo constructor con parametros
+	public Libros(int codigo, String titulo, int año, boolean prestado) {
+		this.codigo = codigo;
+		this.titulo = titulo;
+		this.año = año;
+		this.prestado = prestado;
+	}
+
+	// Metodos get y set
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public int getAño() {
+		return año;
+	}
+
+	public void setAño(int año) {
+		this.año = año;
+	}
+
+	public boolean isPrestado() {
+		return prestado;
+	}
+
+	public void setPrestado(boolean prestado) {
+		this.prestado = prestado;
+	}
+
+	// Metodo toString()
+	@Override
+	public String toString() {
+		return "Libros [codigo=" + codigo + ", titulo=" + titulo + ", año=" + año + ", prestado=" + prestado + "]";
+	}
+	
+	// Metodo prestar
+	public void prestar() {
+		if(this.prestado)
+			System.out.println("Este libro no está disponible");
+		else
+			this.prestado = true;
+	}
+	
+	// Metodo devolver
+	public void devolver() {
+		if(this.prestado) {
+			this.prestado=false;
+		}
+		else
+			System.out.println("Ya está devuelto");
+	}
+	
+}

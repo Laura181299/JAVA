@@ -1,0 +1,38 @@
+package ejercicio05;
+
+import java.util.ArrayList;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		// Creación de la pila
+		ArrayList<Integer> entradas1 = new ArrayList<Integer>();
+		entradas1.add(1);
+		entradas1.add(2);
+		entradas1.add(3);
+		entradas1.add(4);
+		Pila pila1 = new Pila(entradas1,4,5); // pila con 4 objetos de tamaño 5
+		
+		ArrayList<Integer> entradas2 = new ArrayList<Integer>();
+		entradas2.add(1);
+		Pila pila2 = new Pila(entradas2,1,5);
+		
+		// Operaciones con pila
+		System.out.println(pila1.annadir(5)); // se ha añadido el elemento
+		System.out.println(pila1); // nueva pila
+		
+		System.out.println(pila1.annadir(6)); // no se ha podido añadir el elemento
+		
+		pila1.extraer(); // hemos extraido el ultimo elemento
+		System.out.println(pila1); // nueva pila
+		
+		pila1.primero();
+		
+		pila2.extraer();
+		System.out.println(pila2.estaVacia());
+		pila2.extraer(); // No se puede extraer, la pila está vacia
+		
+	}
+
+}

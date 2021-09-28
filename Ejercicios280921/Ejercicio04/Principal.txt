@@ -1,0 +1,18 @@
+package ejercicio04;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		Libros libro1 = new Libros(1234,"El principito",1943,false); // creacion de un objeto (libro)
+		
+		libro1.prestar(); // pido prestado el libro1
+		System.out.println(libro1); // el libro1 está prestado
+		libro1.prestar(); // nos dice que el libro1 no está disponible (esta prestado)
+		
+		libro1.devolver(); // devuelvo libro1
+		System.out.println(libro1); // libro1 ya no está prestado
+		libro1.devolver(); // nos dice que libro1 ya está devuelto
+
+	}
+
+}

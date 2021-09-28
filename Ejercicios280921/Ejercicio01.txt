@@ -1,0 +1,37 @@
+package ejercicio01;
+
+import java.util.Scanner;
+
+public class Ejercicio01 {
+
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		String frase;
+		
+		System.out.println("Introduzca una frase: ");
+		frase = teclado.nextLine();
+		
+		System.out.println("Resultado: "+invertirFrase(frase));
+		
+		teclado.close(); // cerramos el teclado
+		
+	}
+	
+	// Función que invierte la frase
+	public static String invertirFrase(String frase) {
+		
+		String [] partesFrase = frase.split(" "); // separamos la frase en palabras
+		
+		String fraseInvertida=partesFrase[1]; // inicializamos
+		
+		for(int i = 2; i<partesFrase.length-1;i++) {
+			fraseInvertida = fraseInvertida + " " + partesFrase[i];
+		}
+		
+		String fraseSol = partesFrase[partesFrase.length-1]+" "+fraseInvertida+" "+partesFrase[0];
+		return(fraseSol);
+	}
+
+}

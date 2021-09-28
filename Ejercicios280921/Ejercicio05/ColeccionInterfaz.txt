@@ -1,0 +1,10 @@
+package ejercicio05;
+
+public interface ColeccionInterfaz {
+	
+	public boolean annadir(int x);
+	public boolean estaVacia();
+	public void extraer();
+	public void primero();
+
+}

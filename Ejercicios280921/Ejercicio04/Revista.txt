@@ -1,0 +1,33 @@
+package ejercicio04;
+
+public class Revista extends Libros{
+	
+	// Atributo adicional
+	private int numero;
+
+	// Metodo constructor con parametros
+	public Revista(int codigo, String titulo, int año, boolean prestado, int numero) {
+		super(codigo, titulo, año, prestado);
+		this.numero = numero;
+	}
+
+	// Metodos get y set
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	
+	// Metodo to String
+	@Override
+	public String toString() {
+		return "Revista [numero=" + numero + "]";
+	}
+	
+	
+	
+
+}

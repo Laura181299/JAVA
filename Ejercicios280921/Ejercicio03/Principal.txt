@@ -1,0 +1,61 @@
+package ejercicio03;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		// Creación de la lista de las publicaciones
+		List<Publicaciones> listaPublicaciones = new LinkedList<Publicaciones>(); 
+		
+		// Añadimos objetos a la lista
+		listaPublicaciones.add(new Publicaciones("El principito",true,1943));
+		listaPublicaciones.add(new Publicaciones("Cien años de soledad",false,1967));
+		listaPublicaciones.add(new Publicaciones("El extranjero",true,1942));
+		listaPublicaciones.add(new Publicaciones("Agrociencia",true,2017));
+		listaPublicaciones.add(new Publicaciones("Universidad y ciencia",true,2014));  
+		listaPublicaciones.add(new Publicaciones("Ecosistemas y recursos agropecuarios",false,2021));  
+		
+		// Imprimimos los datos
+		System.out.println("Lista de publicaciones: ");
+		for(Publicaciones a : listaPublicaciones) {
+			System.out.println("Titulo: "+a.getTitulo()+", Prestado: "+a.isPrestado()+", Año: "+a.getPublicacion());
+		}
+		
+		System.out.println("***************************");
+		
+		// Implementacion metodos saldoPrestados y cantPublicaciones
+		saldoPrestados(listaPublicaciones);
+		System.out.println("**************************");
+		cantPublicaciones(listaPublicaciones,2002);
+		
+
+	}
+
+	// Metodo saldoPrestados
+	public static void saldoPrestados(List<Publicaciones> listaPublicaciones) {
+		int contador = 0;
+		for(Publicaciones a : listaPublicaciones) {
+			if(a.isPrestado()) {
+				contador = contador + 1;
+			}
+		}
+		System.out.println("Número de libros/revistas prestadas: "+contador);
+		
+	}
+	
+	// Metodo cantPublicaciones
+	public static void cantPublicaciones(List<Publicaciones> listaPublicaciones, int año) {
+		int contador = 0;
+		for(Publicaciones a : listaPublicaciones) {
+			if (a.getPublicacion()<año) {
+				contador = contador + 1;
+			}
+		}
+		System.out.println("Número de libros/revistas con año de publicación menor que "+año+": "+contador);
+	}
+	
+	
+}

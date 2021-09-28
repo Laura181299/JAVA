@@ -1,0 +1,43 @@
+package ejercicio03;
+
+public class Publicaciones {
+	// Atributos
+	private String titulo;
+	private boolean prestado;
+	private int publicacion;
+	
+	// Metodo constructor con parametros
+	public Publicaciones(String titulo, boolean prestado, int publicacion) {
+		this.titulo = titulo;
+		this.prestado = prestado;
+		this.publicacion = publicacion;
+	}
+
+	// Metodos get y set
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public boolean isPrestado() {
+		return prestado;
+	}
+
+	public void setPrestado(boolean prestado) {
+		this.prestado = prestado;
+	}
+
+	public int getPublicacion() {
+		return publicacion;
+	}
+
+	public void setPublicacion(int publicacion) {
+		this.publicacion = publicacion;
+	}
+	
+	
+
+}
